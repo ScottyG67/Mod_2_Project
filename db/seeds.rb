@@ -7,6 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 Caterer.destroy_all
+User.destroy_all
+Venue.destroy_all
 
 caterer_names = ["Best Bakers", "Top Chef"]
 caterer_food_types = ["gourmet pastries", "american"]
@@ -18,8 +20,6 @@ caterer_descriptions = ["We make the best pastries in town!", "Burgers and fries
         Caterer.create(name:caterer_names[i],food_type:caterer_food_types[i],cost_per_head:caterer_cost_per_head[i], description:caterer_descriptions[i])
         i +=1
     end    
-User.destroy_all
-Venue.destroy_all
 
 user_names = ["Batman","Alfred"]
 user_emails = ["imrich@batman.com","butler@batman.com"]

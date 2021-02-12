@@ -11,7 +11,18 @@
   </head>
 
   <body>
-    <h1>Superspreader<h1>
+    <header>
+    <h1>Superspreader.com<h1>
+    <h3>The Place for a Super Party</h3>
+    <div>
+      <ul class="horizontal">
+        <li><%= link_to "Venues Index Page", venues_path%></li>
+        <li><%= link_to "Users Index Page", users_path%></li>
+        <li><%= link_to "Caterers Index Page", caterers_path%></li>
+      </ul>
+    </div>
+
+    </header>
    
     <%= yield %>
   </body>

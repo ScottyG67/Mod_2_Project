@@ -13,3 +13,73 @@
  *= require_tree .
  *= require_self
  */
+
+
+ /*Application heading bar */
+
+header {
+  background-color: #7395AE;
+}
+header h1 {
+  font-size: 32px;
+  text-align: center;
+  color: #fff;
+  /*padding: 2px 0;*/
+  text-transform: uppercase;
+  letter-spacing: 5px;
+ }
+ header h3 {
+  font-size: 16px;
+  text-align: center;
+  color: #fff;
+  /*padding: 0px 6;*/
+  text-transform: uppercase;
+  letter-spacing: 2px;
+ }
+
+ ul.horizontal {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  
+}
+
+/* li {
+  float: left;
+}
+
+li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+} */
+
+ 
+/* Standard Table Formatting */
+
+table {
+    font-family: Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin: 10px;
+  }
+  
+td, th {
+    border: 1px solid #ddd;
+    padding: 8px;
+  }
+  
+tr:nth-child(even){background-color: #f2f2f2;}
+  
+tr:hover {background-color: #ddd;}
+  
+th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #B1A296;
+    color: white;
+  }

@@ -13,8 +13,22 @@
 </div>
 
 <!-- Tables -->
-<strong>Approved Caterers<strong>
-<p> Add table here with filtered list of Caterers <p>
+
+<table style="width:50%">
+<caption>Approved Caterers</caption>
+    <tr>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Cost per Head</th>
+    </tr>
+    <% @venue.caterers.each do |caterer| %>
+        <tr>
+            <td><%=link_to caterer.name, caterer_path(caterer)%></td>
+            <td><%=caterer.food_type%></td>
+            <td><%=caterer.cost_per_head%></td>
+        </tr>
+    <%end%>
+</table>
 
 <strong>Upcoming Events<strong>
 <p> Add table here with filtered list of events <p>
