@@ -1,0 +1,17 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  description: MyText
+  time: 2021-02-12 15:17:38
+  durations_hours: 1
+  venue: one
+  caterer: one
+
+two:
+  title: MyString
+  description: MyText
+  time: 2021-02-12 15:17:38
+  durations_hours: 1
+  venue: two
+  caterer: two
