@@ -36,6 +36,12 @@ header h1 {
   text-transform: uppercase;
   letter-spacing: 2px;
  }
+ .menu {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+ }
 
  ul.horizontal {
   list-style-type: none;
@@ -45,7 +51,7 @@ header h1 {
   
 }
 
-/* li {
+/* li.horizontal {
   float: left;
 }
 
