@@ -1,0 +1,19 @@
+<h2> Edit Caterer </h2>
+
+<%= form_for @caterer do |f|%>
+    <p><%= f.label :"Name:" %>
+    <%= f.text_field :name %></p>
+    <p><%= f.label :"Food Type:" %>
+    <%= f.text_field :food_type %></p>
+    <p><%= f.label :"Cost per head:" %>
+    <%= f.text_field :cost_per_head %></p>
+    <p><%= f.label :"Description:" %>
+    <%= f.text_area :description %></p>
+    <%= f.submit "Submit Edits"%>
+<%end%> <br>
+
+
+<%= button_to 'Cancel Edits ', caterer_path, :method => "get" %> <br>
+
+<%= button_to "Delete Caterer", caterer_path, :confirm => 'Are you sure?', :method => "delete" %><br>
+

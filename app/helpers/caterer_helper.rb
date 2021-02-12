@@ -1,0 +1,2 @@
+module CatererHelper
+end

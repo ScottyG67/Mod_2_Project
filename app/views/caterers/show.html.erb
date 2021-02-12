@@ -1,0 +1,60 @@
+<h2><%= @caterer.name %></h2>
+
+<div>
+    
+    <strong>Description:</strong>
+    <p><%=  @caterer.description  %></p>
+    <strong>Cost per head:</strong>
+    <p><%=  @caterer.cost_per_head %></p>
+
+</div>
+
+<div>
+<strong> Upcoming Events </strong>
+<table style="width:50%">
+  <tr>
+    <th>Event</th>
+    <th>Date</th>
+    <th>Location</th>
+    <th>Expected Attendance</th>
+  </tr>
+  
+  <tr>
+    <td>event.title</td>
+    <td>event.date</td>
+    <td>event.location</td>
+    <td>event.attenedance</td>
+  </tr>
+</table>
+
+</div> <br>
+
+<div>
+<strong> Past Events </strong>
+<table style="width:50%">
+  <tr>
+    <th>Event</th>
+    <th>Date</th>
+    <th>Location</th>
+    <th>Expected Attendance</th>
+  </tr>
+  
+  <tr>
+    <td>event.title</td>
+    <td>event.date</td>
+    <td>event.location</td>
+    <td>event.attenedance</td>
+  </tr>
+</table>
+
+</div> <br>
+
+
+<%= button_to 'Edit Caterer', edit_caterer_path, :method => "get" %><br>
+
+<%= button_to 'All Caterers', caterers_path, :method => "get" %> <br>
+
+
+
+
+
