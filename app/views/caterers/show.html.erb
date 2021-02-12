@@ -18,13 +18,14 @@
     <th>Location</th>
     <th>Expected Attendance</th>
   </tr>
-  
+  <% @caterer.events.each do |event| %>
   <tr>
-    <td>event.title</td>
-    <td>event.date</td>
-    <td>event.location</td>
+    <td><%=event.title%></td>
+    <td><%=event.time%></td>
+    <td><%=event.venue.name%></td>
     <td>event.attenedance</td>
   </tr>
+  <%end%>
 </table>
 
 </div> <br>
