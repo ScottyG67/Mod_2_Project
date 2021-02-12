@@ -1,13 +1,3 @@
 <h2>New User</h2>
 
-<%= form_for @user do |f|%>
-    <p><%= f.label :"Name:" %>
-    <%= f.text_field :name %></p>
-    <p><%= f.label :"Email:" %>
-    <%= f.text_field :email %></p>
-    <p><%= f.label :"Password:" %>
-    <%= f.text_field :password %></p>
-    <p><%= f.label :"Bio:" %>
-    <%= f.text_area :bio %></p>
-    <%= f.submit %>
-<%end%>
+<%= render partial: 'user', locals: {user: @user} %>

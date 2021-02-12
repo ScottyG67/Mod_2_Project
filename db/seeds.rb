@@ -18,3 +18,29 @@ caterer_descriptions = ["We make the best pastries in town!", "Burgers and fries
         Caterer.create(name:caterer_names[i],food_type:caterer_food_types[i],cost_per_head:caterer_cost_per_head[i], description:caterer_descriptions[i])
         i +=1
     end    
+User.destroy_all
+Venue.destroy_all
+
+user_names = ["Batman","Alfred"]
+user_emails = ["imrich@batman.com","butler@batman.com"]
+passwords = ["nananana","tea123"]
+user_bios = ["I'm Batman","Would you like some tea, sir?"]
+
+
+i = 0
+while i < user_names.length
+    User.create(name:user_names[i],email:user_emails[i],password:passwords[i], bio:user_bios[i])
+    i +=1
+end
+
+venue_names = ["Wane Manor", "Batcave"]
+venue_descriptions = ["Big fancy house", "Dark, damp, filled with bats"]
+venue_locations =["Gotham City", "Gotham City"]
+venue_capacity = [500,10]
+venue_costs = [10000,100000]
+
+i = 0
+while i < user_names.length
+    Venue.create(name:venue_names[i],description:venue_descriptions[i],location:venue_locations[i], capacity:venue_capacity[i], cost:venue_costs[i])
+    i +=1
+end

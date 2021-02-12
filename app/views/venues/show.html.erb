@@ -1,0 +1,33 @@
+<h2><%= @venue.name %></h2>
+
+<!-- venue information -->
+<div>
+    <p><strong>Location:<strong> <%=@venue.location%></p>
+
+    <p><strong>Capacity:<strong> <%=@venue.capacity%></p>
+
+    <p><strong>Cost:<strong> <%=number_to_currency(@venue.cost)%></p>
+
+    <strong>Description:</strong>
+    <p><%=@venue.description%></p>
+</div>
+
+<!-- Tables -->
+<strong>Approved Caterers<strong>
+<p> Add table here with filtered list of Caterers <p>
+
+<strong>Upcoming Events<strong>
+<p> Add table here with filtered list of events <p>
+
+<strong>Past Events<strong>
+<p> Add table here with filtered list of events <p>
+
+
+<h3>The following links are temporary</h3>
+
+<%= link_to "Venues Index Page", venues_path%>
+<%= button_to "Venues Index Page", venues_path, :method => "get" %>
+<%= link_to "Edit venue", edit_venue_path%>
+<%= button_to "Edit venue", edit_venue_path, :method => "get" %>
+
+<%= button_to "Delete venue", venue_path, :confirm => 'Are you sure?', :method => "delete" %>
