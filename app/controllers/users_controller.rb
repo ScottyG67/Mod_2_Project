@@ -19,11 +19,19 @@ class UsersController < ApplicationController
     end
 
     def new
-        @user = user.new
+        @user = User.new
     end
 
     def create
-        byebug
+        @user = User.new(strong_params(:name))
+        if @user.save
+            # session[:user_id] = @user.id
+            redirect_to @user
+        else
+            render :new
+
+        end
+
     end
 
 
@@ -36,5 +44,10 @@ class UsersController < ApplicationController
     def set_user
         @user = User.find_by(id: params[:id])
     end
+
+
+#     <!--<h2> Welcome, <%= User.find(session[:user_id]).name %> </h2> -->
+
+# <!--<h4><%=link_to "View My Profile", user_path(session[:user_id])%></h4>-->
 
 end
