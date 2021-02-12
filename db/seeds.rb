@@ -9,6 +9,7 @@
 Caterer.destroy_all
 User.destroy_all
 Venue.destroy_all
+Event.destroy_all
 
 caterer_names = ["Best Bakers", "Top Chef"]
 caterer_food_types = ["gourmet pastries", "american"]
@@ -44,3 +45,14 @@ while i < user_names.length
     Venue.create(name:venue_names[i],description:venue_descriptions[i],location:venue_locations[i], capacity:venue_capacity[i], cost:venue_costs[i])
     i +=1
 end
+
+# event_titles = ["Bad Idea", "Regrets"]
+# event_descriptions = ["Covid test provided afterwards.", "You might get sick but you'll have a great time."]
+# event_venues = ["Wane Manor", "Batcave"]
+# event_caterers = ["Best Bakers", "Top Chef"]
+
+# i = 0
+# while i < event_titles.length
+#     Event.create(title:event_titles[i],description:event_descriptions[i],venue:event_venues[i], caterer:event_caterers[i])
+#     i +=1
+# end
