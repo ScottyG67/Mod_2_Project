@@ -15,6 +15,7 @@ class VenuesController < ApplicationController
         if @venue.update(strong_params(:name, :location, :capacity, :cost, :description))
             redirect_to @venue
         else
+            #flash
             render :edit
         end
     end
@@ -29,12 +30,14 @@ class VenuesController < ApplicationController
             # session[:venue_id] = @venue.id
             redirect_to @venue
         else
+            #flash
             render :new
         end
     end
 
     def destroy
         @venue.destroy
+        #flash
         redirect_to venues_path
     end
 

@@ -1,7 +1,23 @@
 <h2> All Caterers </h2>
 
-<ul>
-<% @caterers.each do  |caterer| %>
-    <li><%= link_to caterer.name, caterer%></li>
-<% end %>
-</ul>
+<p>More awesome text about awesome caterers</p>
+
+<div>
+  <table style="width:50%">
+    <caption>Caterers List</caption>
+    <tr>
+      <th>Caterer</th>
+      <th>Type of Food</th>
+
+    </tr>
+    <% @caterers.each do  |caterer| %>
+      <tr>
+        <td><%= link_to caterer.name, caterer%></td>
+        <td><%= caterer.food_type.titleize%></td>
+      </tr>
+    <% end %>
+  </table>
+
+</div> <br>
+
+<%= button_to "New Caterer", new_caterer_path, :method => "get" %>

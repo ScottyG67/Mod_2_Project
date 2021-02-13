@@ -6,15 +6,16 @@
 <%end%>
 </div>
 
-
-<%= form_for user do |f|%>
-    <p><%= f.label :"Name:" %>
-    <%= f.text_field :name %></p>
-    <p><%= f.label :"Email:" %>
-    <%= f.text_field :email %></p>
-    <p><%= f.label :"Password:" %>
-    <%= f.text_field :password %></p>
-    <p><%= f.label :"Bio:" %>
-    <%= f.text_area :bio %></p>
-    <%= f.submit %>
-<%end%>
+<div class ="edit_form">
+    <%= form_for user do |f|%>
+        <p><%= f.label :"Name:" %>
+        <%= f.text_field :name %></p>
+        <p><%= f.label :"Email:" %>
+        <%= f.text_field :email %></p>
+        <p><%= f.label :"Password:" %>
+        <%= f.text_field :password %></p>
+        <p><%= f.label :"Bio:" %>
+        <%= f.text_area :bio %></p>
+        <%= f.submit %>
+    <%end%><br>
+</div>

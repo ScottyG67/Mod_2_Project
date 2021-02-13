@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
         before_action :set_event, only: %i[show edit update create destroy]
+
         def index
             @events = Event.all
         end 
@@ -12,8 +13,9 @@ class EventsController < ApplicationController
     
         def update
             if @event.update(strong_params(:title,:time, :description, :durations_hours)) 
-                redirect_to @caterer
+                redirect_to @event
             else 
+                #flash
                 render :edit
             end 
         end
@@ -23,16 +25,20 @@ class EventsController < ApplicationController
         end 
     
         def create
-            @event = Event.new(strong_params(:title,:time, :description, :durations_hours))
+            @event = Event.new(strong_params(:title,:time, :description, :durations_hours, :caterer_id, :venue_id))
             if @event.save
+                byebug
+                UserEvent.create(event_id: @event.id, user_id: params[:event][:host], organizer: true)
                 redirect_to @event
             else 
+                #flash
                 render :new
             end 
         end 
     
         def destroy
             @event.destroy
+            #flash
             redirect_to caterers_path
         end
     

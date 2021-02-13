@@ -1,34 +1,30 @@
 <h2>Current Events</h2>
 
 
-
-<ul>
-<% @events.each do |event| %>
-    <li><%= link_to @event.title, event%></li>
-<% end %>
-</ul>
+<p>Some really great text about our event page?<p>
 
 
 <div>
-<strong> Upcoming Events </strong><br>
-
-
-<table style="width:50%">
-  <tr>
-    <th>Event</th>
-    <th>Date</th>
-    <th>Location</th>
-    <th>Food</th>
-  </tr>
-  
-  <tr>
-    <td>event.title</td>
-    <td>event.date</td>
-    <td>event.location</td>
-    <td>caterer.name</td>
-  </tr>
-</table>
+  <table style="width:50%">
+    <caption>Upcoming Events</caption>
+    <tr>
+      <th>Event</th>
+      <th>Date</th>
+      <th>Location</th>
+      <th>Food</th>
+    </tr>
+    <% @events.each do |event| %>
+      <tr>
+        <td><%= link_to event.title, event%></td>
+        <td><%= event.time%></td>
+        <td><%= link_to event.venue.name, venue_path(event.venue)%></td>
+        <td><%=event.caterer.name%></td>
+      </tr>
+    <% end %>
+  </table>
 
 </div> <br>
+
+<%= button_to "New Event", new_event_path, :method => "get" %>
 
 

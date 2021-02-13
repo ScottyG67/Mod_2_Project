@@ -1,3 +1,7 @@
 <h2>Edit Venue</h2>
 
 <%= render partial: 'venue', locals: {venue: @venue} %>
+<div class="button">
+    <%= button_to 'Cancel Edits ', venue_path, :method => "get" %> <br>
+    <%= button_to "Delete venue", venue_path, :confirm => 'Are you sure?', :method => "delete" %>
+</div>

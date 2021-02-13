@@ -1,5 +1,6 @@
 class CaterersController < ApplicationController
     before_action :set_caterer, only: %i[show edit update create destroy]
+    
     def index
         @caterers = Caterer.all
     end 
@@ -14,6 +15,7 @@ class CaterersController < ApplicationController
         if @caterer.update(strong_params(:name,:food_type, :cost_per_head, :description)) 
             redirect_to @caterer
         else 
+            #flash
             render :edit
         end 
     end
@@ -27,12 +29,14 @@ class CaterersController < ApplicationController
         if @caterer.save
             redirect_to @caterer
         else 
+            #flash
             render :new
         end 
     end 
 
     def destroy
         @caterer.destroy
+        #flash
         redirect_to caterers_path
     end
 

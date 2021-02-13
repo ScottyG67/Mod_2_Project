@@ -6,17 +6,18 @@
 <%end%>
 </div>
 
-
-<%= form_for venue do |f|%>
-    <p><%= f.label :"Name:" %>
-    <%= f.text_field :name %></p>
-    <p><%= f.label :"location:" %>
-    <%= f.text_field :location %></p>
-    <p><%= f.label :"capacity:" %>
-    <%= f.number_field :capacity %></p>
-    <p><%= f.label :"cost:" %>
-    <%= f.number_field :cost %></p>
-    <p><%= f.label :"Description:" %>
-    <%= f.text_area :description %></p>
-    <%= f.submit %>
-<%end%>
+<div class ="edit_form">
+    <%= form_for venue do |f|%>
+        <p><%= f.label :"Name:" %>
+        <%= f.text_field :name %></p>
+        <p><%= f.label :"location:" %>
+        <%= f.text_field :location %></p>
+        <p><%= f.label :"capacity:" %>
+        <%= f.number_field :capacity %></p>
+        <p><%= f.label :"cost:" %>
+        <%= f.number_field :cost %></p>
+        <p><%= f.label :"Description:" %>
+        <%= f.text_area :description %></p>
+        <%= f.submit %>
+    <%end%><br>
+</div>

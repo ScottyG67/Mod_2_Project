@@ -1,3 +1,7 @@
 <h2>Edit User</h2>
 
 <%= render partial: 'user', locals: {user: @user} %>
+<div class="button">
+    <%= button_to 'Cancel Edits ', user_path, :method => "get" %> <br>
+    <%= button_to "Delete User", user_path, :confirm => 'Are you sure?', :method => "delete" %>
+</div>

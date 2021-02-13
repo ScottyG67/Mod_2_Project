@@ -14,6 +14,7 @@ class UsersController < ApplicationController
         if @user.update(strong_params(:name, :email, :password, :bio))
             redirect_to @user
         else
+            #flash
             render :edit
         end
     end
@@ -28,12 +29,14 @@ class UsersController < ApplicationController
             # session[:user_id] = @user.id
             redirect_to @user
         else
+            #flash
             render :new
         end
     end
 
     def destroy
         @user.destroy
+        #flash
         redirect_to users_path
     end
 

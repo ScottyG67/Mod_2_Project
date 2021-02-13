@@ -2,21 +2,27 @@
 
 <div>
     
-   
-    <strong>Time:</strong>
-    <p><%=  @event.time %></p>
-    <strong>Duration:</strong>
-    <p><%=  @event.durations_hours %></p>
-    <strong>Caterer:</strong>
-    <p><%=  @caterer.name %></p>
+    <p><strong>Time:</strong>
+    <%=  @event.time %></p>
+    <p><strong>Duration:</strong>
+    <%=  @event.durations_hours %></p>
+    <p><strong>Host:<strong>
+    <%= link_to @event.host.name, user_path(@event.host)%></p>
+    <p><strong>Caterer:</strong>
+    <%=link_to  @event.caterer.name, caterer_path(@event.caterer) %></p>
     <strong>Event Description:</strong>
     <p><%=  @event.description %></p>
-    <strong>Current Attendees:</strong>
-    <p><%=  @User.all %></p>
-
-
-
-
-    
 
 </div>
+
+<div>
+    <hX>Confirmed Guests</hx>
+    <ul>
+        <% @event.guest_list.each do |user| %>
+            <li><%=link_to user.name, user_path(user) %></li>
+        <% end %>
+    </ul>
+</div>
+
+<%= button_to 'Edit Event', edit_event_path, :method => "get" %><br>
+

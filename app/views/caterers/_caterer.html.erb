@@ -1,0 +1,21 @@
+<div class="error">
+<% if caterer.errors.any? %>
+    <% caterer.errors.full_messages.each do |message|%>
+        <h4><%= message %> </h4>
+    <%end%>
+<%end%>
+</div>
+
+<div class ="edit_form">
+    <%= form_for caterer do |f|%>
+        <p><%= f.label :"Name:" %>
+        <%= f.text_field :name %></p>
+        <p><%= f.label :"Food Type:" %>
+        <%= f.text_field :food_type %></p>
+        <p><%= f.label :"Cost per head:" %>
+        <%= f.text_field :cost_per_head %></p>
+        <p><%= f.label :"Description:" %>
+        <%= f.text_area :description %></p>
+        <%= f.submit "Submit Edits"%>
+    <%end%> <br>
+</div>

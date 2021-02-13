@@ -1,13 +1,3 @@
 <h2>New Caterer</h2>
 
-<%= form_for @caterer do |f|%>
-    <p><%= f.label :"Name:" %>
-    <%= f.text_field :name %></p>
-    <p><%= f.label :"Food Type:" %>
-    <%= f.text_field :food_type %></p>
-    <p><%= f.label :"Cost per head:" %>
-    <%= f.text_field :cost_per_head %></p>
-    <p><%= f.label :"Description:" %>
-    <%= f.text_area :description %></p>
-    <%= f.submit %>
-<%end%>
+<%= render partial: 'caterer', locals: {caterer: @caterer} %>
