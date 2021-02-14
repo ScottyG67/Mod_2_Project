@@ -12,7 +12,7 @@ class EventsController < ApplicationController
         end 
     
         def update
-            if @event.update(strong_params(:title,:time, :description, :durations_hours)) 
+            if @event.update(strong_params(:title,:time, :description, :durations_hours, :user_ids)) 
                 redirect_to @event
             else 
                 #flash

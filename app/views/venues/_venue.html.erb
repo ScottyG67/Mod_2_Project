@@ -18,6 +18,8 @@
         <%= f.number_field :cost %></p>
         <p><%= f.label :"Description:" %>
         <%= f.text_area :description %></p>
-        <%= f.submit %>
+        <p><%= f.label :"Approved Caterers:"%>
+        <%= f.collection_check_boxes :caterer_ids, Caterer.all, :id, :name %></p>
+        <%= f.submit "Save" %>
     <%end%><br>
 </div>

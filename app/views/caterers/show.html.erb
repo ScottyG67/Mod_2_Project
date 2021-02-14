@@ -11,47 +11,11 @@
 
 </div>
 
-<div>
+<!--Render upcoming events with attendance table -->
+<%= render partial: '/events/eventstablewithattendance', locals: {events: @caterer.events.upcoming, caption: "Upcoming Events"} %>
+<!--Render past events with attendance table -->
+<%= render partial: '/events/eventstablewithattendance', locals: {events: @caterer.events.past, caption: "Past Events"} %>
 
-<table style="width:50%">
-  <caption>Upcoming Events</caption>
-  <tr>
-    <th>Event</th>
-    <th>Date</th>
-    <th>Location</th>
-    <th>Expected Attendance</th>
-  </tr>
-  <% @caterer.events.each do |event| %>
-  <tr>
-    <td><%=link_to event.title, event_path(event.id)%></td>
-    <td><%=event.time%></td>
-    <td><%=event.venue.name%></td>
-    <td>event.attenedance</td>
-  </tr>
-  <%end%>
-</table>
-
-</div> <br>
-
-<div>
-<strong> Past Events </strong>
-<table style="width:50%">
-  <tr>
-    <th>Event</th>
-    <th>Date</th>
-    <th>Location</th>
-    <th>Expected Attendance</th>
-  </tr>
-  
-  <tr>
-    <td>event.title</td>
-    <td>event.date</td>
-    <td>event.location</td>
-    <td>event.attenedance</td>
-  </tr>
-</table>
-
-</div> <br>
 
 
 <%= button_to 'Edit Caterer', edit_caterer_path, :method => "get" %><br>

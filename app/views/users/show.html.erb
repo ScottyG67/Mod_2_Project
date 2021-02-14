@@ -3,14 +3,11 @@
 <strong>Bio</strong>
 <p><%=@user.bio%></p>
 
-<strong>Upcoming Events<strong>
-<p> Add table here with filtered list of events <p>
+<!--Render past events table -->
+<%= render partial: '/events/eventstable', locals: {events: @user.events.upcoming, caption: "Upcoming Events"} %>
+<!--Render past events table -->
+<%= render partial: '/events/eventstable', locals: {events: @user.events.past, caption: "Past Events"} %>
 
-<strong>Past Events<strong>
-<p> Add table here with filtered list of events <p>
-
-
-<h3>The following links are temporary</h3>
 
 
 

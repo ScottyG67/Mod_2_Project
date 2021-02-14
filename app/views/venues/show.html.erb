@@ -28,16 +28,12 @@
             <td><%=caterer.cost_per_head%></td>
         </tr>
     <%end%>
-</table>
+</table><br>
 
-<strong>Upcoming Events<strong>
-<p> Add table here with filtered list of events <p>
-
-<strong>Past Events<strong>
-<p> Add table here with filtered list of events <p>
-
-
-<h3>The following links are temporary</h3>
+<!--Render upcoming events table -->
+<%= render partial: '/events/eventstableforvenue', locals: {events: @venue.events.upcoming, caption: "Upcoming Events"} %>
+<!--Render past events table -->
+<%= render partial: '/events/eventstableforvenue', locals: {events: @venue.events.past, caption: "Past Events"} %>
 
 
 

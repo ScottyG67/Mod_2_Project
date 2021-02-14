@@ -11,8 +11,9 @@ class VenuesController < ApplicationController
     def edit
     end
 
+
     def update
-        if @venue.update(strong_params(:name, :location, :capacity, :cost, :description))
+        if @venue.update(strong_params(:name, :location, :capacity, :cost, :description, :caterer_ids => []))
             redirect_to @venue
         else
             #flash
@@ -25,7 +26,7 @@ class VenuesController < ApplicationController
     end
 
     def create
-        @venue = Venue.new(strong_params(:name, :location, :capacity, :cost, :description))
+        @venue = Venue.new(strong_params(:name, :location, :capacity, :cost, :description, :caterer_ids => []))
         if @venue.save
             # session[:venue_id] = @venue.id
             redirect_to @venue
@@ -40,7 +41,6 @@ class VenuesController < ApplicationController
         #flash
         redirect_to venues_path
     end
-
 
 
     private

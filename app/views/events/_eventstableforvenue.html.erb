@@ -1,0 +1,22 @@
+<!--#Renders table of event details with appropriate links. Requires 2 locals events which is an array of event objects and caption which is string -->
+
+<div>
+  <table style="width:50%">
+    <caption><%=caption%></caption>
+    <tr>
+      <th>Event</th>
+      <th>Date</th>
+      <th>Star Time</th>
+      <th>Food</th>
+    </tr>
+    <% events.each do |event| %>
+      <tr>
+        <td><%= link_to event.title, event%></td>
+        <td><%= event.formal_date%></td>
+        <td><%= event.start_time%></td>
+        <td><%= link_to event.caterer.name, caterer_path(event.caterer) %></td>
+      </tr>
+    <% end %>
+  </table>
+
+</div> <br>

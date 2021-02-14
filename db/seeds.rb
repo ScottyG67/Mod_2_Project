@@ -59,28 +59,28 @@ end
 
 #Events
 
-event_titles = ["Bad Idea", "Regrets"]
-event_descriptions = ["Covid test provided afterwards.", "You might get sick but you'll have a great time."]
-event_venues = [Venue.find_by(name:"Wane Manor").id, Venue.find_by(name:"Batcave").id]
-event_caterers = [Caterer.find_by(name:"Best Bakers").id, Caterer.find_by(name:"Top Chef").id]
+event_titles = ["Bad Idea", "Regrets", "Party Hardy"]
+event_descriptions = ["Covid test provided afterwards.", "You might get sick but you'll have a great time.", "Party like its 2019"]
+event_venues = [Venue.find_by(name:"Wane Manor").id, Venue.find_by(name:"Batcave").id, Venue.find_by(name:"Wane Manor").id]
+event_caterers = [Caterer.find_by(name:"Best Bakers").id, Caterer.find_by(name:"Top Chef").id, Caterer.find_by(name:"Best Bakers").id]
+event_time = [Time.now + 10000000, Time.now + 20000000, Time.now - 50000000]
+event_duration = [5,1,24]
 
 i = 0
 while i < event_titles.length
-    Event.create(title:event_titles[i],description:event_descriptions[i],venue_id:event_venues[i], caterer_id:event_caterers[i])
+    Event.create(title:event_titles[i],description:event_descriptions[i],venue_id:event_venues[i], caterer_id:event_caterers[i],time:event_time[i],durations_hours: event_duration[i])
     i +=1
 end
 
 
 #users attending events
 
-user1 = User.all.first
-user2 = User.all.last
-event1 = Event.all.first
-event2 = Event.all.last
 
-UserEvent.create(user_id:user1.id, event_id:event1.id, organizer: true)
-UserEvent.create(user_id:user2.id, event_id:event1.id, organizer: false)
-UserEvent.create(user_id:user1.id, event_id:event2.id, organizer: false)
-UserEvent.create(user_id:user2.id, event_id:event2.id, organizer: true)
+UserEvent.create(user_id:User.all[0].id, event_id:Event.all[0].id, organizer: true)
+UserEvent.create(user_id:User.all[1].id, event_id:Event.all[0], organizer: false)
+UserEvent.create(user_id:User.all[0].id, event_id:Event.all[1].id, organizer: false)
+UserEvent.create(user_id:User.all[1].id, event_id:Event.all[1].id, organizer: true)
+UserEvent.create(user_id:User.all[0].id, event_id:Event.all[2].id, organizer: true)
+UserEvent.create(user_id:User.all[1].id, event_id:Event.all[2].id, organizer: false)
 
 

@@ -1,29 +1,14 @@
-<h2>Current Events</h2>
+<h2>Event Listings</h2>
 
 
 <p>Some really great text about our event page?<p>
 
+<%= render partial: 'eventstable', locals: {events: @events.upcoming, caption: "Upcoming Parties"} %>
 
-<div>
-  <table style="width:50%">
-    <caption>Upcoming Events</caption>
-    <tr>
-      <th>Event</th>
-      <th>Date</th>
-      <th>Location</th>
-      <th>Food</th>
-    </tr>
-    <% @events.each do |event| %>
-      <tr>
-        <td><%= link_to event.title, event%></td>
-        <td><%= event.time%></td>
-        <td><%= link_to event.venue.name, venue_path(event.venue)%></td>
-        <td><%=event.caterer.name%></td>
-      </tr>
-    <% end %>
-  </table>
+<p> include past events in different view? </p>
 
-</div> <br>
+<%= render partial: 'eventstable', locals: {events: @events.past, caption: "Past Events"} %>
+
 
 <%= button_to "New Event", new_event_path, :method => "get" %>
 

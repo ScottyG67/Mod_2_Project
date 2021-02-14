@@ -12,8 +12,9 @@
         <p><%= f.label :"Description:" %>
         <%= f.text_area :description %></p>
         <p><%= f.label :"Date and time:" %>
-        <%= f.datetime_select :time%></p>
-
+        <%= f.datetime_local_field :time%></p>
+        <p><%= f.label :"Duration:"%>
+        <%= f.number_field :durations_hours%></p>
         <p><%= f.label :"Venue:" %>
         <%= f.collection_select :venue_id, Venue.all, :id, :name, prompt:true %></p>
 
@@ -21,8 +22,8 @@
         <%= f.collection_select :caterer_id, Caterer.all, :id, :name, prompt:true %></p>
 
         <p><%= f.label :"Host:" %>
-        <%= f.collection_select :host, User.all, :id, :name, prompt:true %>
+        <%= f.collection_select :host, User.all, :id, :name, prompt:true %></p>
         
-        <%= f.submit %>
+        <%= f.submit "Save" %>
     <%end%><br>
 </div>

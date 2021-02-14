@@ -14,6 +14,39 @@ class Event < ApplicationRecord
     user_list(false)
   end
 
+#returns date formatted Sunday, January 31, 2021. If time is nil returns string"
+  def formal_date
+    if self.time
+      self.time.strftime("%A, %B %d, %Y")
+    else
+      "TBD"
+    end
+  end
+
+  def start_time
+    if self.time
+      self.time.strftime("%l:%M %P")
+    else
+      "TBD"
+    end
+  end
+
+#returns array of event objects that are scheduled for the future. sorted by date
+  def self.upcoming
+    self.all.select {|event| event.time >= Time.now}.sort_by{|event| event.time}
+  end
+  #returns array of event objects that are scheduled for the past. sorted by date
+  def self.past
+    self.all.select {|event| event.time < Time.now}.sort_by{|event| event.time}
+  end
+
+#calculate current guest list length
+def attendance
+  self.users.count
+end
+
+
+
   private
   #takes in arguement of true or false. Returns array of users. True = users array are organizers, False = User array are guests.
   def user_list(is_organizer)

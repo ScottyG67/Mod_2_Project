@@ -2,10 +2,12 @@
 
 <div>
     
+    <p><strong>Date:</strong>
+    <%= @event.formal_date %></p>
     <p><strong>Time:</strong>
-    <%=  @event.time %></p>
+    <%= @event.start_time %></p>
     <p><strong>Duration:</strong>
-    <%=  @event.durations_hours %></p>
+    <%= @event.durations_hours %></p>
     <p><strong>Host:<strong>
     <%= link_to @event.host.name, user_path(@event.host)%></p>
     <p><strong>Caterer:</strong>
@@ -23,6 +25,7 @@
         <% end %>
     </ul>
 </div>
+
 
 <%= button_to 'Edit Event', edit_event_path, :method => "get" %><br>
 
