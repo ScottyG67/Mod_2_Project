@@ -23,6 +23,9 @@
 
         <p><%= f.label :"Host:" %>
         <%= f.collection_select :host, User.all, :id, :name, prompt:true %></p>
+
+        <p><%= f.label :"Guest List:" %>
+        <%= f.collection_check_boxes :user_ids, User.all, :id, :name, prompt:true %></p>
         
         <%= f.submit "Save" %>
     <%end%><br>

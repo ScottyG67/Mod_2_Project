@@ -26,6 +26,12 @@
     </ul>
 </div>
 
+<%= form_for @event, :url => addguest_path do |f| %>
+    <%= f.hidden_field :event_id, { :value => @event.id } %>
+    <%= f.collection_select :user_ids, User.all, :id, :name %>
+    <%= f.submit %>
+<%end%>
+
 
 <%= button_to 'Edit Event', edit_event_path, :method => "get" %><br>
 

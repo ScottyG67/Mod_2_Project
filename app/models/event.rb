@@ -4,6 +4,28 @@ class Event < ApplicationRecord
   has_many :user_events
   has_many :users, through: :user_events
 
+  validates :title, presence: true
+  validates :time, presence: true
+  validates :durations_hours, presence: true,
+                            numericality: {greater_than: 0}, allow_nil: true 
+  # validates :caterer_id, presence:true#,
+  #                       #inclusion: {in: VenueCaterer.select{|item| item.caterer_id == caterer_id}}
+
+  # validates :venue_id, presence: true
+
+  validates :durations_hours, numericality: {greater_than: 0}, allow_nil: true
+
+  # #validates :caterer_id, inclusion: {in: VenueCaterer.select{|item| item.caterer_id == caterer_id}}
+
+
+
+
+
+  
+
+
+
+
 #returns object of user that is the organizer of the event in the user_events table
   def host
     user_list(true)[0]

@@ -16,6 +16,20 @@ Caterer.destroy_all
 User.destroy_all
 Venue.destroy_all
 
+#users
+
+user_names = ["Batman","Alfred"]
+user_emails = ["imrich@batman.com","butler@batman.com"]
+passwords = ["12345678","12345678"]
+user_bios = ["I'm Batman","Would you like some tea, sir?"]
+
+
+i = 0
+while i < user_names.length
+    User.create(name:user_names[i],email:user_emails[i],password:passwords[i], bio:user_bios[i])
+    i +=1
+end
+
 #caterers
 
 caterer_names = ["Best Bakers", "Top Chef"]
@@ -29,19 +43,6 @@ while i < caterer_names.length
     i +=1
 end    
 
-#users
-
-user_names = ["Batman","Alfred"]
-user_emails = ["imrich@batman.com","butler@batman.com"]
-passwords = ["nananana","tea123"]
-user_bios = ["I'm Batman","Would you like some tea, sir?"]
-
-
-i = 0
-while i < user_names.length
-    User.create(name:user_names[i],email:user_emails[i],password:passwords[i], bio:user_bios[i])
-    i +=1
-end
 
 #Venues
 
@@ -56,6 +57,13 @@ while i < user_names.length
     Venue.create(name:venue_names[i],description:venue_descriptions[i],location:venue_locations[i], capacity:venue_capacity[i], cost:venue_costs[i])
     i +=1
 end
+
+#venue_caterers
+
+VenueCaterer.create(venue_id: Venue.find_by(name: "Wane Manor").id, caterer_id: Caterer.find_by(name: "Best Bakers").id)
+VenueCaterer.create(venue_id: Venue.find_by(name: "Wane Manor").id, caterer_id: Caterer.find_by(name: "Top Chef").id)
+VenueCaterer.create(venue_id: Venue.find_by(name: "Batcave").id, caterer_id: Caterer.find_by(name: "Best Bakers").id)
+VenueCaterer.create(venue_id: Venue.find_by(name: "Batcave").id, caterer_id: Caterer.find_by(name: "Top Chef").id)
 
 #Events
 
@@ -75,12 +83,18 @@ end
 
 #users attending events
 
+user1 = User.all[0]
+user2 = User.all[1]
+event1 = Event.all[0]
+event2 = Event.all[1]
+event3 = Event.all[2]
 
-UserEvent.create(user_id:User.all[0].id, event_id:Event.all[0].id, organizer: true)
-UserEvent.create(user_id:User.all[1].id, event_id:Event.all[0], organizer: false)
-UserEvent.create(user_id:User.all[0].id, event_id:Event.all[1].id, organizer: false)
-UserEvent.create(user_id:User.all[1].id, event_id:Event.all[1].id, organizer: true)
-UserEvent.create(user_id:User.all[0].id, event_id:Event.all[2].id, organizer: true)
-UserEvent.create(user_id:User.all[1].id, event_id:Event.all[2].id, organizer: false)
+
+UserEvent.create(user_id:user1.id, event_id:event1.id, organizer: true)
+UserEvent.create(user_id:user2.id, event_id:event1.id, organizer: false)
+UserEvent.create(user_id:user1.id, event_id:event2.id, organizer: false)
+UserEvent.create(user_id:user2.id, event_id:event2.id, organizer: true)
+UserEvent.create(user_id:user1.id, event_id:event3.id, organizer: true)
+UserEvent.create(user_id:user2.id, event_id:event3.id, organizer: false)
 
 

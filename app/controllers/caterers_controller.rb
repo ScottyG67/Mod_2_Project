@@ -12,7 +12,7 @@ class CaterersController < ApplicationController
     end 
 
     def update
-        if @caterer.update(strong_params(:name,:food_type, :cost_per_head, :description)) 
+        if @caterer.update(strong_params(:name,:food_type, :cost_per_head, :description, :food_type)) 
             redirect_to @caterer
         else 
             #flash
@@ -25,7 +25,7 @@ class CaterersController < ApplicationController
     end 
 
     def create
-        @caterer = Caterer.new(strong_params(:name,:cost_per_head, :description))
+        @caterer = Caterer.new(strong_params(:name,:cost_per_head, :description, :food_type))
         if @caterer.save
             redirect_to @caterer
         else 

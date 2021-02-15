@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     end
 
     def show
+        #note: show can error when event is created with no guests (expects host to be a guest)
     end
 
     def edit
