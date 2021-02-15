@@ -6,7 +6,7 @@ class UserEvent < ApplicationRecord
   validates :user_id, presence: true,
                     uniqueness: {scope: :event_id, message: "You are already signed up to attend."}
   validates :event_id, presence: true
-  validates :organizer, uniqueness: {scope: :event_id}, allow_nil: true
+  #validates :organizer, uniqueness: {scope: :event_id}, allow_nil: true
 
 
 

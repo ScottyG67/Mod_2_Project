@@ -1,5 +1,5 @@
 class Caterer < ApplicationRecord
-    has_many :venue_caterers
+    has_many :venue_caterers, :dependent => :destroy
     has_many :venues, through: :venue_caterers
     has_many :events
 

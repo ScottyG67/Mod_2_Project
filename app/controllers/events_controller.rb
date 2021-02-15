@@ -6,15 +6,19 @@ class EventsController < ApplicationController
         end 
     
         def show
+            if !@event.host
+                #flash: "Host not assigned. Please update."
+                redirect_to edit_event_path(@event)
+            end
         end 
     
         def edit
         end 
     
         def update
-            byebug
             if @event.update(strong_params(:title,:time, :description, :durations_hours)) 
-                redirect_to @event
+                swap_host
+                redirect_to @event  
             else 
                 #flash
                 render :edit
@@ -27,8 +31,11 @@ class EventsController < ApplicationController
     
         def create
             @event = Event.new(strong_params(:title,:time, :description, :durations_hours, :caterer_id, :venue_id))
+            
             if @event.save
+                byebug
                 UserEvent.create(event_id: @event.id, user_id: params[:event][:host], organizer: true)
+                byebug
                 redirect_to @event
             else 
                 #flash
@@ -39,7 +46,7 @@ class EventsController < ApplicationController
         def destroy
             @event.destroy
             #flash
-            redirect_to caterers_path
+            redirect_to events_path
         end
 
         def addguest
@@ -60,6 +67,18 @@ class EventsController < ApplicationController
      def set_event
         @event = Event.find_by(id: params[:id])
      end 
+
+     def swap_host
+        if UserEvent.find_by(organizer: true, event_id: @event.id)
+            @old_host = UserEvent.find_by(organizer: true, event_id: @event.id)
+            @old_host.organizer = false
+            @old_host.save
+        end
+        @new_host = UserEvent.find_or_create_by(event_id: @event.id, user_id: params[:event][:host])
+        @new_host.organizer = true
+        @new_host.save
+     end
+
     
         
 end
