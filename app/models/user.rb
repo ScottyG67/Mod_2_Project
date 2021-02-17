@@ -7,7 +7,7 @@ class User < ApplicationRecord
    has_many :events, through: :user_events
 
    
-   validates :name, presence: true
+   #validates :name, presence: true
    validates :email, presence: true
    validates :password, presence: true
    validates :email, uniqueness: true, allow_nil: true #only validates if email is filled in.
