@@ -1,10 +1,14 @@
 class UsersController < ApplicationController
     before_action :set_user, only: %i[ show edit update destroy ]
+    
     def index
         @users = User.all
     end
 
     def show
+        if params[:id] == current_user.id.to_s
+            render :myprofile
+        end
         #note: show can error when event is created with no guests (expects host to be a guest)
     end
 
@@ -55,8 +59,6 @@ class UsersController < ApplicationController
     end
 
 
-#     <!--<h2> Welcome, <%= User.find(session[:user_id]).name %> </h2> -->
 
-# <!--<h4><%=link_to "View My Profile", user_path(session[:user_id])%></h4>-->
 
 end
