@@ -1,11 +1,9 @@
 <h2>Event Listings</h2>
 
 
-<p>Some really great text about our event page?<p>
+<p>Want a intimate hang out with your closest friends? Want to get lost in the crowd? Either way we got the event for you. Browse the below selection, check out some of our past events or even plan your own.<p>
 
 <%= render partial: 'eventstable', locals: {events: @events.upcoming, caption: "Upcoming Parties"} %>
-
-<p> include past events in different view? </p>
 
 <%= render partial: 'eventstable', locals: {events: @events.past, caption: "Past Events"} %>
 
