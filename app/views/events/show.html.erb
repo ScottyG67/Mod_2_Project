@@ -28,8 +28,8 @@
 
 <%= form_for @event, :url => addguest_path do |f| %>
     <%= f.hidden_field :event_id, { :value => @event.id } %>
-    <%= f.collection_select :user_ids, User.all, :id, :name %>
-    <%= f.submit %>
+    <%= f.hidden_field :user_id, {:value => current_user.id} %>
+    <%= f.submit "Sign Up!" %>
 <%end%>
 
 

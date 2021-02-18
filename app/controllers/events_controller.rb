@@ -33,9 +33,7 @@ class EventsController < ApplicationController
             @event = Event.new(strong_params(:title,:time, :description, :durations_hours, :caterer_id, :venue_id))
             
             if @event.save
-                byebug
                 UserEvent.create(event_id: @event.id, user_id: params[:event][:host], organizer: true)
-                byebug
                 redirect_to @event
             else 
                 #flash
@@ -50,7 +48,8 @@ class EventsController < ApplicationController
         end
 
         def addguest
-            @userevent = UserEvent.new(event_id: params[:event][:event_id],user_id: params[:event][:user_ids])
+            byebug
+            @userevent = UserEvent.new(strong_params(:event_id,:user_id))
             if @userevent.save
                 redirect_to user_path(User.find_by(id: params[:event][:user_ids]))
             else
