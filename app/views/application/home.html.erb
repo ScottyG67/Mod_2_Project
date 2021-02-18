@@ -2,7 +2,7 @@
 <h3>The best place on your local server for a super good party!</h3>
 <%= button_to 'Log Out', destroy_user_session_path, method: 'delete'%>
 
-<%= image_tag "jason-leung-Xaanw0s0pMk-unsplash.jpg", style: 'height:50vw;width:50vw;margin-bottom:20px;' %>
+
 
 <%= render partial: '/events/eventstablewithattendance', locals: {events: Event.all.upcoming, caption: "Upcoming Events"} %>
 

@@ -1,0 +1,15 @@
+
+
+$main-color: #F0F5F9;
+
+$font-sans: Verdana, Geneva, sans-serif;
+
+body{
+    background-color: $main-color;
+    font-family: $font-sans;
+    background-image: url(confetti.jpg);
+}
+
+h1, h2, h3 {
+    font-weight: 400;
+}
