@@ -6,6 +6,9 @@ class UsersController < ApplicationController
     end
 
     def show
+        if params[:id] == current_user.id.to_s
+            render :myprofile
+        end
         #note: show can error when event is created with no guests (expects host to be a guest)
     end
 

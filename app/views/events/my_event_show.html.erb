@@ -26,16 +26,7 @@
     </ul>
 </div>
 
-<% if @event.guest_list.include?(current_user) %>
-    <%= render partial: 'notattend', locals: {event: @event} %>
-<% else %>
-    <%= render partial: 'attend', locals: {event: @event} %>
-<% end %>
 
-<%= form_for @event, :url => addguest_path do |f| %>
-    <%= f.hidden_field :event_id, { :value => @event.id } %>
-    <%= f.hidden_field :user_id, {:value => current_user.id} %>
-    <%= f.submit "Sign Up!" %>
-<%end%>
 
+<%= button_to 'Edit Event', edit_event_path, :method => "get" %><br>
 

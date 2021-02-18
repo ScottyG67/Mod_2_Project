@@ -6,9 +6,13 @@ class EventsController < ApplicationController
         end 
     
         def show
+            byebug
             if !@event.host
                 #flash: "Host not assigned. Please update."
                 redirect_to edit_event_path(@event)
+            end
+            if @event.host.id == current_user.id
+                render :my_event_show
             end
         end 
     
@@ -48,9 +52,17 @@ class EventsController < ApplicationController
         end
 
         def addguest
-            byebug
             @userevent = UserEvent.new(strong_params(:event_id,:user_id))
             if @userevent.save
+                redirect_to user_path(User.find_by(id: params[:event][:user_ids]))
+            else
+                render :show
+            end
+        end
+        def removeguest
+            byebug
+            @userevent = UserEvent.find_by_user_id_and_event_id(params[:event][:user_id], params[:event][:event_id])
+            if @userevent.destroy
                 redirect_to user_path(User.find_by(id: params[:event][:user_ids]))
             else
                 render :show

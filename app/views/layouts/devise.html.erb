@@ -14,18 +14,6 @@
     <header>
       <h1>Superspreader.com<h1>
       <h3>The Place for a Super Party</h3>
-      <nav class="menu">
-<!-- left format -->
-          <%= link_to "Events", events_path %>
-          <%= link_to "Venues", venues_path%>
-          <%= link_to "Users", users_path%>
-          <%= link_to "Caterers", caterers_path%>
-<!-- right format only render once logged in? -->
-          <%= link_to "Profile", user_path(current_user)%>
-          <%= button_to 'Log Out', destroy_user_session_path, method: 'delete'%>
-
-      </nav>
-
 
     </header>
    

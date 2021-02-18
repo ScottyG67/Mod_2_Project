@@ -1,0 +1,5 @@
+<%= form_for @event, :url => removeguest_path, :method => 'delete' do |f| %>
+    <%= f.hidden_field :event_id, { :value => @event.id } %>
+    <%= f.hidden_field :user_id, {:value => current_user.id} %>
+    <%= f.submit "I don't want to attend any more" %>
+<%end%>
