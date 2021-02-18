@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
-  root 'events#index'
+  get 'events/index'
+  root to: 'events#index'
 
   resources :sessions, only: [:create]
   resources :venues

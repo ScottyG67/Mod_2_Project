@@ -13,6 +13,7 @@ class UsersController < ApplicationController
 
     def update
         if @user.update(strong_params(:name, :email, :password, :bio))
+          
             redirect_to @user
         else
             #flash

@@ -7,7 +7,7 @@
     <p><strong>Time:</strong>
     <%= @event.start_time %></p>
     <p><strong>Duration:</strong>
-    <%= @event.durations_hours %></p>
+    <%= "#{@event.durations_hours} hr" %></p>
     <p><strong>Host:<strong>
     <%= link_to @event.host.name, user_path(@event.host)%></p>
     <p><strong>Caterer:</strong>

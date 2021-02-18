@@ -33,9 +33,9 @@ class EventsController < ApplicationController
             @event = Event.new(strong_params(:title,:time, :description, :durations_hours, :caterer_id, :venue_id))
             
             if @event.save
-                byebug
+               
                 UserEvent.create(event_id: @event.id, user_id: params[:event][:host], organizer: true)
-                byebug
+               
                 redirect_to @event
             else 
                 #flash
