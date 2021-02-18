@@ -3,11 +3,14 @@
 // You can use Sass (SCSS) here: https://sass-lang.com/
 
 
-$main-color: #F1F6F9;
-$font-sans: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+$main-color: #F0F5F9;
+$font-sans: Verdana, Geneva, sans-serif;
 
 body{
     background-color: $main-color;
     font-family: $font-sans;
+}
 
+h1, h2, h3 {
+    font-weight: 400;
 }
