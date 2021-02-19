@@ -1,10 +1,11 @@
-<h1>Welcome to Superspreader.com</h1>
-<h3>The best place on your local server for a super good party!</h3>
-<%= button_to 'Log Out', destroy_user_session_path, method: 'delete'%>
+<div class=center>
+    <h1>Welcome to Superspreader.com</h1>
+    <h3>The best place on your local server for a super good party!</h3>
+</div>
 
 
 
 <%= render partial: '/events/eventstablewithattendance', locals: {events: Event.all.upcoming, caption: "Upcoming Events"} %>
 
-<p> list of navigation links?</p>
+
 

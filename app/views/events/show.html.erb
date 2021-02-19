@@ -1,24 +1,20 @@
-<h2><%= @event.title %></h2>
+<div class= "center">
+    <h1 class="page_title"><%= @event.title %></h1>
 
-<div>
-    
-    <p><strong>Date:</strong>
-    <%= @event.formal_date %></p>
-    <p><strong>Time:</strong>
-    <%= @event.start_time %></p>
-    <p><strong>Duration:</strong>
+    <p>ON</p>
+    <h1><%= @event.formal_date %></h1>
+    <p>AT</p>
+    <h1><%= @event.start_time %></h1>
+    <p>Hosted by</p>
+    <h1><%= link_to @event.host.name, user_path(@event.host), class: 'nolink'%></h1>
+    <p>Food From</p>
+    <h2><%=link_to  @event.caterer.name, caterer_path(@event.caterer) %></h2>
+    <p>Lasting:
     <%= "#{@event.durations_hours} hr" %></p>
-    <p><strong>Host:<strong>
-    <%= link_to @event.host.name, user_path(@event.host)%></p>
-    <p><strong>Caterer:</strong>
-    <%=link_to  @event.caterer.name, caterer_path(@event.caterer) %></p>
-    <strong>Event Description:</strong>
+    <p>Event Description:</p>
     <p><%=  @event.description %></p>
 
-</div>
-
-<div>
-    <hX>Confirmed Guests</hx>
+    <h3>Confirmed Guests</h3>
     <ul>
         <% @event.guest_list.each do |user| %>
             <li><%=link_to user.name, user_path(user) %></li>
@@ -26,16 +22,15 @@
     </ul>
 </div>
 
-<% if @event.guest_list.include?(current_user) %>
-    <%= render partial: 'notattend', locals: {event: @event} %>
+<% if @event.host == current_user %>
+    <%= button_to 'Edit Event', edit_event_path, :method => "get" %><br>
 <% else %>
-    <%= render partial: 'attend', locals: {event: @event} %>
-<% end %>
-
-<%= form_for @event, :url => addguest_path do |f| %>
-    <%= f.hidden_field :event_id, { :value => @event.id } %>
-    <%= f.hidden_field :user_id, {:value => current_user.id} %>
-    <%= f.submit "Sign Up!" %>
+    <% if @event.guest_list.include?(current_user) %>
+        <%= render partial: 'notattend', locals: {event: @event} %>
+    <% else %>
+        <%= render partial: 'attend', locals: {event: @event} %>
+    <% end %>
 <%end%>
+
 
 

@@ -18,7 +18,7 @@
  /*Application heading bar */
 
 header {
-  background-color: #C9D6DF;
+  background-color: #1F2833;
 }
 header h1 {
   font-size: 32px;
@@ -36,33 +36,65 @@ header h1 {
   text-transform: uppercase;
   letter-spacing: 2px;
  }
- .menu {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
- }
 
- ul.horizontal {
+ ul.menu {
   list-style-type: none;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  
+  background-color: #45a29e /*RGB(149,203,201)*/;
 }
 
-/* li.horizontal {
+li.menu {
   float: left;
 }
+#right{
+  float: right;
+}
 
-li a {
+li.menu a {
   display: block;
   color: white;
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
-} */
+}
 
+.menu_button {
+  background-color: #C5C6C7; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+li.menu a:hover:not(.active) {
+  background-color: #66Fcf1;
+}
+
+li.menu a:active {
+  background-color: #e27d60;
+}
+
+/* Paragraph text formatting */
+
+h1,h2,h3{  font-family: lato,sans-serif;
+  color: #C5C6C7;
+}
+
+.center{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+p {
+  font-family: lato,sans-serif;
+  color: #C5C6C7;
+}
  
 /* Standard Table Formatting */
 
@@ -71,14 +103,17 @@ table {
     border-collapse: collapse;
     width: 100%;
     margin: 10px;
+    margin-left: auto;
+    margin-right: auto;
   }
   
 td, th {
     border: 1px solid #ddd;
     padding: 8px;
   }
-  
-tr:nth-child(even){background-color: #f2f2f2;}
+ 
+tr {background-color: #C5c6c7;}
+tr:nth-child(even){background-color: #C5c6c7;}
   
 tr:hover {background-color: #ddd;}
   
@@ -86,6 +121,27 @@ th {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #B1A296;
+    background-color: #1f2833;
     color: white;
+    font-weight: lighter;
+  }
+  caption {
+    color: white;
+    background-color: #1f2833;
+    padding: 20px;
+    text-align: left;
+    letter-spacing: 1px;
+    font-size: large;
+    font-weight: bold;
+  }
+
+  .page_title{
+    padding: 20px;
+
+  }
+
+  .nolink {
+    color: inherit;
+    text-decoration: inherit;
+
   }
