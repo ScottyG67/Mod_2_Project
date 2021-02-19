@@ -19,7 +19,7 @@
 
  /*Application heading bar */
 
-@import "materialize"; 
+/*@import "materialize";*/
 
 header {
   background-color: #1F2833;
@@ -155,5 +155,13 @@ th {
     color: white;
   }
 
+
+  .row{
+    position: absolute;
+    left: 1000px;
+    width: 70%;
+    padding: 10px;
+    bottom: 50px;
+  }
 
  
