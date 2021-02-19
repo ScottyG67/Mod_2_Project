@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
    has_many :user_events, :dependent => :destroy
    has_many :events, through: :user_events
+   has_one_attached :avatar
 
    
    #validates :name, presence: true

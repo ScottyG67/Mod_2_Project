@@ -2,6 +2,7 @@
 
 <%= render partial: 'user', locals: {user: @user} %>
 <div class="button">
+    <%= button_to "Add Profile Picture", picture_path, :method => "get" %> <br>
     <%= button_to 'Cancel Edits ', user_path, :method => "get" %> <br>
     <%= button_to "Delete User", user_path, :confirm => 'Are you sure?', :method => "delete" %>
 </div>

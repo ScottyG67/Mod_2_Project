@@ -14,6 +14,8 @@ Rails.application.routes.draw do
 
   patch "/events/:id/addguest", to: "events#addguest", as: "addguest"
   delete "/events/:id/removeguest", to: "events#removeguest", as: "removeguest"
+  get "/users/:id/picture", to: "users#picture", as: "picture"
+  patch "/users/:id/picture", to: "users#updatepicture", as: "updatepicture"
 end
 
 

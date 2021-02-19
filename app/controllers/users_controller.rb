@@ -6,18 +6,29 @@ class UsersController < ApplicationController
     end
 
     def show
-        if params[:id] == current_user.id.to_s
-            render :myprofile
-        end
-        #note: show can error when event is created with no guests (expects host to be a guest)
+        # if params[:id] == current_user.id.to_s
+        #     render :myprofile
+        # end
+        # #note: show can error when event is created with no guests (expects host to be a guest)
     end
 
     def edit
     end
 
+    def picture
+        @user = User.find_by(id: params[:id])
+    end
+
+
+    def updatepicture
+        byebug
+        @user = User.find_by(id: params[:id])
+        @user.avatar.attach(params[:user][:avatar])
+        redirect_to @user
+    end
+
     def update
-        if @user.update(strong_params(:name, :email, :password, :bio))
-          
+        if @user.update(strong_params(:name, :email, :bio, :password))
             redirect_to @user
         else
             #flash
