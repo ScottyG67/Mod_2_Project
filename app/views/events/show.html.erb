@@ -22,7 +22,7 @@
     </ul>
 </div>
 
-<% if @event.host == current_user %>
+<% if @event.host == current_user || current_user.admin? %>
     <%= button_to 'Edit Event', edit_event_path, :method => "get" %><br>
 <% else %>
     <% if @event.guest_list.include?(current_user) %>

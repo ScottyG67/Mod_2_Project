@@ -20,12 +20,15 @@
           <li class="menu"><%= link_to "Home", root_path %></li>
           <li class="menu"><%= link_to "Events", events_path %></li>
           <li class="menu"><%= link_to "Venues", venues_path%></li>
-          <li class="menu"><%= link_to "Users", users_path%></li>
+          <li class="menu"><%= link_to "People", users_path%></li>
           <li class="menu"><%= link_to "Caterers", caterers_path%></li>
 <!-- right format only render once logged in? -->
           <li class="menu" id="right"><%= button_to 'Log Out',destroy_user_session_path, method: 'delete', :class => 'menu_button'%></li>
           <li class="menu" id="right"><%= link_to "Profile", user_path(current_user)%></li>
-          
+          <li class="menu" id="right"><%= link_to "New Event", new_event_path%></li>
+        <% if current_user.admin? %>
+          <li class="menu" id="right"><%= link_to 'Admin Portal', admin_path%></li>
+        <%end%>
           </ul>
 
 

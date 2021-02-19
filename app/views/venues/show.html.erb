@@ -36,6 +36,7 @@
 <%= render partial: '/events/eventstableforvenue', locals: {events: @venue.events.past, caption: "Past Events"} %>
 
 
-
-<%= button_to "Edit venue", edit_venue_path, :method => "get" %>
+<% if current_user.admin? %>
+    <%= button_to "Edit venue", edit_venue_path, :method => "get" %>
+<% end %>
 

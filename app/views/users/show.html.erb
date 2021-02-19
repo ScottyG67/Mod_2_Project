@@ -14,6 +14,6 @@
 <!--Render past events table -->
 <%= render partial: '/events/eventstable', locals: {events: @user.events.past, caption: "Past Events"} %>
 
-<% if @user == current_user %>
+<% if @user == current_user || current_user.admin? %>
     <%= button_to "Edit User", edit_user_path, :method => "get" %>
 <% end %>

@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   delete "/events/:id/removeguest", to: "events#removeguest", as: "removeguest"
   get "/users/:id/picture", to: "users#picture", as: "picture"
   patch "/users/:id/picture", to: "users#updatepicture", as: "updatepicture"
+  get "/admin", to: "users#admin", as:"admin"
 end
 
 

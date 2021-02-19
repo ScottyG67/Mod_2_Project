@@ -18,15 +18,15 @@ Venue.destroy_all
 
 #users
 
-user_names = ["Batman","Alfred"]
-user_emails = ["imrich@batman.com","butler@batman.com"]
-passwords = ["12345678","12345678"]
-user_bios = ["I'm Batman","Would you like some tea, sir?"]
-
+user_names = ["Batman","Alfred","Scott","Cat Woman"]
+user_emails = ["imrich@batman.com","butler@batman.com","scott.gloyna01@gmail.com","meow@batman.com"]
+passwords = ["12345678","12345678","password","12345678"]
+user_bios = ["I'm Batman","Tea always goes well at a party?","Lets have a party.", "I like shiny things."]
+user_roles = [0,0,1,0]
 
 i = 0
 while i < user_names.length
-    User.create(name:user_names[i],email:user_emails[i],password:passwords[i], bio:user_bios[i])
+    User.create(name:user_names[i],email:user_emails[i],password:passwords[i], bio:user_bios[i], role:user_roles[i])
     i +=1
 end
 
@@ -85,6 +85,7 @@ end
 
 user1 = User.all[0]
 user2 = User.all[1]
+user3 = User.all[3]
 event1 = Event.all[0]
 event2 = Event.all[1]
 event3 = Event.all[2]
@@ -92,6 +93,7 @@ event3 = Event.all[2]
 
 UserEvent.create(user_id:user1.id, event_id:event1.id, organizer: true)
 UserEvent.create(user_id:user2.id, event_id:event1.id, organizer: false)
+UserEvent.create(user_id:user3.id, event_id:event1.id, organizer: false)
 UserEvent.create(user_id:user1.id, event_id:event2.id, organizer: false)
 UserEvent.create(user_id:user2.id, event_id:event2.id, organizer: true)
 UserEvent.create(user_id:user1.id, event_id:event3.id, organizer: true)

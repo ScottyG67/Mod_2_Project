@@ -3,5 +3,8 @@ class ApplicationController < ActionController::Base
 
     def home
     end
+    def admin_access?
+        return head(:forbidden) unless current_user.admin?
+    end
 
 end
