@@ -16,7 +16,6 @@ class EventsController < ApplicationController
         end 
     
         def edit
-            byebug
             return head(:forbidden) unless current_user.admin? || current_user == @event.host
 
         end 

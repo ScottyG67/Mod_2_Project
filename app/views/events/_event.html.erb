@@ -18,7 +18,7 @@
         <%= f.number_field :durations_hours%></p>
         <p><%= f.label :"Venue:" %>
         <%= f.collection_select :venue_id, Venue.all, :id, :name, prompt:true %></p>
-
+        <select class="browser-default">
         <p><%= f.label :"Caterer:" %>
         <%= f.collection_select :caterer_id, Caterer.all, :id, :name, prompt:true %></p>
 
@@ -27,7 +27,7 @@
 
         <p><%= f.label :"Guest List:" %>
         <%= f.collection_check_boxes :user_ids, User.all, :id, :name, prompt:true %></p>
-        
+        </select>
         <%= f.submit "Save" %>
     <%end%><br>
 </div>
