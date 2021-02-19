@@ -51,11 +51,11 @@ class EventsController < ApplicationController
         end
 
         def addguest
-            byebug
+           
             @userevent = UserEvent.new(strong_params(:event_id,:user_id, :organizer))
-            byebug
+           
             if @userevent.save
-                byebug
+                
                 redirect_to user_path(current_user)
             else
                 render :show

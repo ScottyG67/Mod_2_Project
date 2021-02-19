@@ -11,6 +11,7 @@
   </head>
 
   <body>
+    
     <header>
       <h1>Superspreader.com<h1>
       <h3>The Place for a Super Party</h3>
@@ -27,12 +28,30 @@
           <li class="menu" id="right"><%= link_to "Profile", user_path(current_user)%></li>
           
           </ul>
-
-
-
-
     </header>
-   
-    <%= yield %>
+
+
+    <div class = "container">
+      <%= yield %>
+    </div>
+
+
+    <style>
+      .footer {
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background-color: #0B0C10;
+        color: white;
+        text-align: center;
+}
+    </style>
+
+    <div class="footer">
+      <p>Let's Party!</p>
+      <p>© 2021 Copyright </p>
+    </div>
+
   </body>
 </html>
