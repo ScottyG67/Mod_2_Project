@@ -1,5 +1,6 @@
 class VenuesController < ApplicationController
-    before_action :set_venue, only: %i[ show edit update destroy ]
+    before_action :set_venue, only: %i[ show edit update destroy]
+    before_action :admin_access?, only: %i[edit new]
 
     def index
         @venues = Venue.all

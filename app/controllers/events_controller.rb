@@ -16,6 +16,9 @@ class EventsController < ApplicationController
         end 
     
         def edit
+            byebug
+            return head(:forbidden) unless current_user.admin? || current_user == @event.host
+
         end 
     
         def update
@@ -51,9 +54,9 @@ class EventsController < ApplicationController
         end
 
         def addguest
-           
+            
             @userevent = UserEvent.new(strong_params(:event_id,:user_id, :organizer))
-           
+            
             if @userevent.save
                 
                 redirect_to user_path(current_user)

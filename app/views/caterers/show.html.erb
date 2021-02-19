@@ -17,8 +17,9 @@
 <%= render partial: '/events/eventstablewithattendance', locals: {events: @caterer.events.past, caption: "Past Events"} %>
 
 
-
-<%= button_to 'Edit Caterer', edit_caterer_path, :method => "get" %><br>
+<% if current_user.admin? %>
+    <%= button_to 'Edit Caterer', edit_caterer_path, :method => "get" %><br>
+<% end %>
 
 
 

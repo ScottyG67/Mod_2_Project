@@ -13,21 +13,24 @@ class UsersController < ApplicationController
     end
 
     def edit
+        authorized_user_access?
     end
 
     def picture
+        authorized_user_access?
         @user = User.find_by(id: params[:id])
     end
 
 
     def updatepicture
-        byebug
+
         @user = User.find_by(id: params[:id])
         @user.avatar.attach(params[:user][:avatar])
         redirect_to @user
     end
 
     def update
+
         if @user.update(strong_params(:name, :email, :bio, :password))
             redirect_to @user
         else
@@ -37,6 +40,7 @@ class UsersController < ApplicationController
     end
 
     def new
+        admin_access?
         @user = User.new
     end
 
@@ -57,6 +61,10 @@ class UsersController < ApplicationController
         redirect_to users_path
     end
 
+    def admin
+        admin_access?
+    end
+
 
 
     private
@@ -67,6 +75,12 @@ class UsersController < ApplicationController
 
     def set_user
         @user = User.find_by(id: params[:id])
+    end
+    
+
+
+    def authorized_user_access?
+        return head(:forbidden) unless current_user.admin? || current_user.id.to_s == params[:id]
     end
 
 
