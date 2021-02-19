@@ -23,8 +23,11 @@ class UsersController < ApplicationController
 
 
     def updatepicture
+        byebug
 
         @user = User.find_by(id: params[:id])
+        byebug
+        @user.avatar.purge
         @user.avatar.attach(params[:user][:avatar])
         redirect_to @user
     end
