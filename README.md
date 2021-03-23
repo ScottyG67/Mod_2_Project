@@ -1,24 +1,11 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Phase_2 Project
 
-Things you may want to cover:
+Simple party/event planning web application built using Ruby on Rails in one week. Create, plan and add events to your calender. Events include venues, caterers and attendees.
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Features
+  - secure login utilizing devise gem
+  - Full CRUD on multiple linked tables
+  - backend and frontend validations
+  - Conditional rendering based upon user permissions 
